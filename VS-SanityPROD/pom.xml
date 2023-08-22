@@ -119,14 +119,15 @@ accept responses. If you have any further questions, please contact
 
                         <receivers>
                        
-<receiver>erinc.suluk@net-effect.com</receiver>
 <receiver>ankit.i.sharma@pwc.com</receiver>
-<receiver>sumit.dhage@net-effect.com</receiver>
-<receiver>om.menkudale@net-effect.com</receiver>
+<receiver>sumit.dhage@pwc.com</receiver>
+<receiver>om.menkudale@pwc.com</receiver>
 <receiver>varun.r.rao@pwc.com</receiver>
-<receiver>sophie.feixu@net-effect.com</receiver>
+<receiver>sophie.feixu@pwc.com</receiver>
 <receiver>aman.s.gill@pwc.com</receiver>
-<receiver>karishma.kumari@net-effect.com</receiver>
+<receiver>karishma.kumari@pwc.com</receiver>
+<receiver>erinc.suluk@pwc.com</receiver>
+<receiver>erinc.suluk@net-effect.com</receiver>
 
 
 

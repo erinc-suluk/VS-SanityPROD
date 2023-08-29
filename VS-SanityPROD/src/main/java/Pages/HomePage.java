@@ -390,7 +390,7 @@ public class HomePage extends HelperFunctions {
 	    HelperFunctions.staticWait(2);
 	    logo.click();*/
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(15);
+	    //HelperFunctions.waitForPageToLoad(15);
 	    
 	    test.info("Wait for logo visibility");
 	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
@@ -398,7 +398,7 @@ public class HomePage extends HelperFunctions {
 	    HelperFunctions.staticWait(3);
 	    test.info("Clicked on select topic");
         selectTopic.click();
-        HelperFunctions.staticWait(2);
+        //HelperFunctions.staticWait(2);
         test.info("Wait for deals checkbox visibility and move the cursor on it");
         WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait3.until(ExpectedConditions.visibilityOf(dealsCheckbox));

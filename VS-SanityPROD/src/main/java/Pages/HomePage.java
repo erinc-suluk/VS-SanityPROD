@@ -1718,10 +1718,10 @@ public class HomePage extends HelperFunctions {
 		read1.setExcelFile("./testdata.xlsx", "STG");
 	 
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(15);
+	   // HelperFunctions.waitForPageToLoad(15);
 	   
 	    test.info("Wait for logo visibility");
-	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 20);
 	    wait2.until(ExpectedConditions.visibilityOf(logo));
 	    HelperFunctions.staticWait(3);
 	    Assert.assertTrue(terriMenu.isDisplayed());
@@ -1729,13 +1729,13 @@ public class HomePage extends HelperFunctions {
 	    HelperFunctions.staticWait(2);
 	    terriMenu.click();
 	    test.info("Clicked on territory menu");
-	    HelperFunctions.staticWait(3);
+	    //HelperFunctions.staticWait(3);
 	    WebElement mexicoLink = Driver.getDriver().findElement(By.linkText("Mexico"));
 	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait3.until(ExpectedConditions.visibilityOf(mexicoLink));
 	    mexicoLink.click();
 	    test.info("Clicked on Mexico");
-	    HelperFunctions.waitForPageToLoad(3);
+	    HelperFunctions.waitForPageToLoad(30);
 	    HelperFunctions.staticWait(3);
 	    WebDriverWait wait4 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait4.until(ExpectedConditions.visibilityOf(terriMenu));
@@ -1761,13 +1761,13 @@ public class HomePage extends HelperFunctions {
 	    HelperFunctions.staticWait(2);
 	    terriMenu.click();
 	    test.info("Clicked on territory menu");
-	    HelperFunctions.staticWait(3);
+	    //HelperFunctions.staticWait(3);
 	    WebElement usLink = Driver.getDriver().findElement(By.linkText("Estados Unidos"));
 	    WebDriverWait wait7 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait7.until(ExpectedConditions.visibilityOf(usLink));
 	    usLink.click();
 	    test.info("Clicked on US");
-	    HelperFunctions.waitForPageToLoad(3);
+	    HelperFunctions.waitForPageToLoad(30);
 	    HelperFunctions.staticWait(3);
 	    WebDriverWait wait8 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait8.until(ExpectedConditions.visibilityOf(terriMenu));
@@ -1812,10 +1812,10 @@ public class HomePage extends HelperFunctions {
 	    HelperFunctions.staticWait(2);
 	    logo.click();*/
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(15);
+	    //HelperFunctions.waitForPageToLoad(15);
 	    
 	    test.info("Wait for logo visibility");
-	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 20);
 	    wait2.until(ExpectedConditions.visibilityOf(logo));
 	    HelperFunctions.staticWait(3);
 	    test.info("Scroll to also like title");
@@ -1868,10 +1868,10 @@ public class HomePage extends HelperFunctions {
 	    HelperFunctions.staticWait(2);
 	    logo.click();*/
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(15);
+	    //HelperFunctions.waitForPageToLoad(15);
 	 
 	    test.info("Wait logo visibility");
-	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 20);
 	    wait2.until(ExpectedConditions.visibilityOf(logo));
 	    HelperFunctions.staticWait(3);
 	    test.info("Clicked on search button");
@@ -1882,9 +1882,9 @@ public class HomePage extends HelperFunctions {
 	    HelperFunctions.staticWait(2);
 	    String mockContent="audit";
 	    searchField.sendKeys(mockContent);
-	    HelperFunctions.staticWait(5);
+	    //HelperFunctions.staticWait(5);
 	    test.info("Wait for suggested keyword's visibility");
-	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 20);
 	    wait3.until(ExpectedConditions.visibilityOf(keySuggestion));
 	    Assert.assertTrue(keySuggestion.isDisplayed());
 	    test.info("Verified suggested keyword is displayed");
@@ -1925,7 +1925,7 @@ public class HomePage extends HelperFunctions {
 	    HelperFunctions.waitForPageToLoad(15);
 	    
 	    test.info("Wait for fav icon's visibility");
-	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 20);
 	    wait3.until(ExpectedConditions.visibilityOf(favIcon));
 	    HelperFunctions.staticWait(3);  
 	    Assert.assertTrue(favIcon.isDisplayed());
@@ -1936,7 +1936,7 @@ public class HomePage extends HelperFunctions {
 		read1.setExcelFile("./testdata.xlsx", "STG");
 	  
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(15);
+	    //HelperFunctions.waitForPageToLoad(15);
 	
 	    test.info("Wait for fav icon's visibility");
 	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
@@ -2031,10 +2031,10 @@ public class HomePage extends HelperFunctions {
 	    HelperFunctions.staticWait(2);
 	    logo.click();*/
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(15);
+	    //HelperFunctions.waitForPageToLoad(15);
 	    
 	    test.info("Wait for fav icon's visibility");
-	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 20);
 	    wait3.until(ExpectedConditions.visibilityOf(favIcon));
 	    HelperFunctions.staticWait(3); 
 	    Assert.assertTrue(favIcon.isDisplayed());
@@ -2105,10 +2105,10 @@ public class HomePage extends HelperFunctions {
 		read1.setExcelFile("./testdata.xlsx", "STG");
 	 
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(15);
+	    //HelperFunctions.waitForPageToLoad(15);
 	   
 	    test.info("Wait for fav icon's visibility");
-	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 20);
 	    wait3.until(ExpectedConditions.visibilityOf(favIcon));
 	    HelperFunctions.staticWait(3);  
 	    Assert.assertTrue(favIcon.isDisplayed());
@@ -2125,7 +2125,7 @@ public class HomePage extends HelperFunctions {
 	    test.info("Clicked on fav icon link");
 	    favIconLink.click();
 	    test.info("Wait for fav header's visibility");
-	    WebDriverWait wait4 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait4 = new WebDriverWait(Driver.getDriver(), 20);
 	    wait4.until(ExpectedConditions.visibilityOf(favHeader));
 	    Assert.assertTrue(favHeader.isDisplayed());
 	    test.info("Verified fav header's visibility");
@@ -2168,10 +2168,10 @@ public class HomePage extends HelperFunctions {
 		read1.setExcelFile("./testdata.xlsx", "STG");
 	 
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(15);
+	    //HelperFunctions.waitForPageToLoad(15);
 	   
 	    test.info("Wait for fav icon's visibility");
-	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 20);
 	    wait3.until(ExpectedConditions.visibilityOf(favIcon));
 	    HelperFunctions.staticWait(3);
 	    Assert.assertTrue(favIcon.isDisplayed());
@@ -2179,10 +2179,10 @@ public class HomePage extends HelperFunctions {
 	    HelperFunctions.staticWait(3);
 	    test.info("Clicked on territory menu");
 	    terriMenu.click();
-	    HelperFunctions.staticWait(3);
+	    wait3.until(ExpectedConditions.visibilityOf(mexico));
 	    test.info("Clicked on mexico");
 	    mexico.click();
-	    HelperFunctions.waitForPageToLoad(3);
+	    HelperFunctions.waitForPageToLoad(30);
 	    HelperFunctions.staticWait(3); 
 	    for (WebElement element : spanishTags) {
 	      String text = element.getText();
@@ -2198,20 +2198,20 @@ public class HomePage extends HelperFunctions {
 		read1.setExcelFile("./testdata.xlsx", "STG");
 	  
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(15);
+	    //HelperFunctions.waitForPageToLoad(15);
 	    
 	    test.info("Wait for fav icon's visibility");
-	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 20);
 	    wait3.until(ExpectedConditions.visibilityOf(favIcon));
 	    HelperFunctions.staticWait(3);
 	    Assert.assertTrue(favIcon.isDisplayed());
 	    test.info("Verified fav icon is displayed");
 	    test.info("Clicked on territory menu");
 	    terriMenu.click();
-	    HelperFunctions.staticWait(3);
+	    wait3.until(ExpectedConditions.visibilityOf(mexico));
 	    test.info("Clicked on mexico");
 	    mexico.click();
-	    HelperFunctions.waitForPageToLoad(3);
+	    HelperFunctions.waitForPageToLoad(30);
 	    HelperFunctions.staticWait(3); 
 	    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
 	    js.executeScript("arguments[0].click();", articleFavIcons.get(0));
@@ -2270,22 +2270,22 @@ public class HomePage extends HelperFunctions {
 		read1.setExcelFile("./testdata.xlsx", "STG");
 	   
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(15);
+	    //HelperFunctions.waitForPageToLoad(15);
 	 
 	    test.info("Wait for logo visibility");
-	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
+	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 20);
 	    wait2.until(ExpectedConditions.visibilityOf(logo));
 	    HelperFunctions.staticWait(3);
 	    test.info("Clicked on territory menu");
 	    terriMenu.click();
-	    HelperFunctions.staticWait(3);
+	    wait2.until(ExpectedConditions.visibilityOf(mexico));
 	    test.info("Clicked on mexico");
 	    mexico.click();
-	    HelperFunctions.waitForPageToLoad(3);
+	    HelperFunctions.waitForPageToLoad(30);
 	    HelperFunctions.staticWait(3); 
 	    test.info("Clicked on select topic");
         selectTopicMX.click();
-        HelperFunctions.staticWait(2);
+        //HelperFunctions.staticWait(2);
         test.info("Wait for esg checkbox visibility and clicked on it");
         WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait3.until(ExpectedConditions.visibilityOf(mexicoCheckbox));
@@ -2311,8 +2311,8 @@ public class HomePage extends HelperFunctions {
 		read1.setExcelFile("./testdata.xlsx", "STG");
 	
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(3);
-	    HelperFunctions.staticWait(3);
+	    //HelperFunctions.waitForPageToLoad(3);
+	    //HelperFunctions.staticWait(3);
 	    test.info("Wait for quick links icon visibility");
 	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait2.until(ExpectedConditions.visibilityOf(quickLinksIcon));

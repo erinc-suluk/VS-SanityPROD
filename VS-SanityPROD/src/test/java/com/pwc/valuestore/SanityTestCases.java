@@ -74,14 +74,26 @@ public class SanityTestCases extends HelperFunctions {
 	    read = new ConfigurationsReader();
 	    platform = read.getPlatform();
 	    read.platformName();
-	    String reportFilePrefix="Sanity Automation Report for Value Store";
-	    File[] files=new File(".").listFiles((dir,name)->name.startsWith(reportFilePrefix));
-	    if(files!=null) {
-	    for(File file: files) {
-	    file.delete();
+	    String reportFilePrefix = "Sanity Automation Report for Value Store";
+	    String reportFileName = reportFilePrefix + ".html";
+	    
+	   
+	    File existingReport = new File(reportFileName);
+	    
+	    if (existingReport.exists()) {
+	       
+	        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd_HHmmss");
+	        String timestamp = dateFormat.format(new Date());
+	        String newReportFileName = reportFilePrefix + "_" + timestamp + ".html";
+	        
+	        if (existingReport.renameTo(new File(newReportFileName))) {
+	            System.out.println("Renamed existing report to: " + newReportFileName);
+	        } else {
+	            System.out.println("Failed to rename existing report.");
+	        }
 	    }
-	   }
-	    String reportFileName=reportFilePrefix + ".html";
+
+	
 	    htmlReporter = new ExtentHtmlReporter(reportFileName);
 	    extent = new ExtentReports();
 	    extent.attachReporter(htmlReporter);
@@ -1044,6 +1056,79 @@ public class SanityTestCases extends HelperFunctions {
 		        lpo.setLogin4();
 		        hp.setQuickLinksIconOpensItems2(test);
 		        test.pass("Test passed");  
+		    } catch (Exception e) {
+		        String screenshotPath = takeScreenshot(testName);
+		        test.fail("Test failed: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		    }
+		    if (test.getModel().getStatus().toString().equalsIgnoreCase("fail")) {
+		        Assert.fail("Test case failed: " + testName);
+		    }
+	}
+	@Test
+	public void WEB_52() throws Exception{
+		  String testName = "To verify that the homepage filters should work as expected and functionality is same as the US or MX but reflecting the GX content and tags";
+		    ExtentTest test = extent.createTest(testName);
+
+		    try {
+		        Driver.getDriver().get(read1.getCellData("VALUE", 11));
+		        lpo.setLogin4();
+		        hp.setFiltersOnGlobal(test);
+		        test.pass("WEB_70 passed");  
+		    } catch (Exception e) {
+		        String screenshotPath = takeScreenshot(testName);
+		        test.fail("Test failed: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		    }
+		    if (test.getModel().getStatus().toString().equalsIgnoreCase("fail")) {
+		        Assert.fail("Test case failed: " + testName);
+		    }
+	}
+	@Test
+	public void WEB_53() throws Exception{
+		  String testName = "Verify that, user cannot perform a search without any keywords(GX)";
+		    ExtentTest test = extent.createTest(testName);
+
+		    try {
+		        Driver.getDriver().get(read1.getCellData("VALUE", 11));
+		        lpo.setLogin4();
+		        hp.setNoSearchResultGlobal(test);
+		        test.pass("WEB_71 passed");  
+		    } catch (Exception e) {
+		        String screenshotPath = takeScreenshot(testName);
+		        test.fail("Test failed: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		    }
+		    if (test.getModel().getStatus().toString().equalsIgnoreCase("fail")) {
+		        Assert.fail("Test case failed: " + testName);
+		    }
+	}
+	@Test
+	public void WEB_54() throws Exception{
+		  String testName = "Verify that there will be no favorite option on the GX site header";
+		    ExtentTest test = extent.createTest(testName);
+
+		    try {
+		        Driver.getDriver().get(read1.getCellData("VALUE", 11));
+		        lpo.setLogin4();
+		        hp.setNoFavGlobal(test);
+		        test.pass("WEB_72 passed");  
+		    } catch (Exception e) {
+		        String screenshotPath = takeScreenshot(testName);
+		        test.fail("Test failed: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		    }
+		    if (test.getModel().getStatus().toString().equalsIgnoreCase("fail")) {
+		        Assert.fail("Test case failed: " + testName);
+		    }
+	}
+	
+	@Test
+	public void WEB_55() throws Exception{
+		  String testName = "Verify that Did you mean feature should also be available on the GX site";
+		    ExtentTest test = extent.createTest(testName);
+
+		    try {
+		        Driver.getDriver().get(read1.getCellData("VALUE", 11));
+		        lpo.setLogin4();
+		        hp.setDidYouMean(test);
+		        test.pass("WEB_73 passed");  
 		    } catch (Exception e) {
 		        String screenshotPath = takeScreenshot(testName);
 		        test.fail("Test failed: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());

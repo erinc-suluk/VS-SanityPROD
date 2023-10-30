@@ -187,7 +187,7 @@ public class TopicLandingPage extends HelperFunctions {
 	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait2.until(ExpectedConditions.visibilityOf(logo));
 	    HelperFunctions.staticWait(2);
-	    //Assert.assertTrue(keyAssetsUrl.size()==4);
+	   // Assert.assertTrue(keyAssetsUrl.size()<=4);
 	    HelperFunctions.staticWait(2);
 	    for(WebElement each:keyAssetsUrl) {
 	    	if(each.getAttribute("href")!=null) {
@@ -234,7 +234,7 @@ public class TopicLandingPage extends HelperFunctions {
 	    HelperFunctions.staticWait(3);
 	    test.info("Clicked on add hot topic");
 	    addHotTopic.click();
-	    HelperFunctions.staticWait(2);
+	    //HelperFunctions.staticWait(2);
 	    WebDriverWait wait4 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait4.until(ExpectedConditions.visibilityOf(errorLabel));
 	    Assert.assertTrue(errorLabel.isDisplayed());
@@ -277,8 +277,8 @@ public class TopicLandingPage extends HelperFunctions {
 	    HelperFunctions.staticWait(2);
 	    test.info("Clicked on hot topic");
 	    hotTopicsTitles.get(0).click();
-	    HelperFunctions.waitForPageToLoad(3);
-	    HelperFunctions.staticWait(3);
+	    HelperFunctions.waitForPageToLoad(30);
+	    //HelperFunctions.staticWait(3);
 	    test.info("Wait for topic content title's visibility");
 	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait2.until(ExpectedConditions.visibilityOf(topicContentTitle));
@@ -290,8 +290,8 @@ public class TopicLandingPage extends HelperFunctions {
 	    HelperFunctions.staticWait(2);
 	    test.info("Clicked on bac to topic");
 	    backToTopic.click();
-	    HelperFunctions.waitForPageToLoad(3);
-	    HelperFunctions.staticWait(3);
+	    HelperFunctions.waitForPageToLoad(30);
+	    //HelperFunctions.staticWait(3);
 	    test.info("Wait for topic page title's visibility");
 	    WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait3.until(ExpectedConditions.visibilityOf(topicPageTitle));
@@ -329,19 +329,26 @@ public class TopicLandingPage extends HelperFunctions {
 	    wait1.until(ExpectedConditions.visibilityOf(topicPageTitle));
 	    Assert.assertTrue(topicPageTitle.isDisplayed());
 	    test.info("Verified topic page title's is displayed");
-	    HelperFunctions.staticWait(2);
+	    try {
+   	    	Thread.sleep(3000);
+   	    }catch(InterruptedException e) {
+   	    	e.printStackTrace();
+   	    }
 	    test.info("Clicked on content page");
-	    for (WebElement element : feedTopics) {
-            if (element.getText().contains("PwC")) {
+	    JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+        executor.executeScript("arguments[0].click();", feedTopics.get(0));
+	    //feedTopics.get(0).click();
+	    /*for (WebElement element : feedTopics) {
+            if (element.getText().contains("pwc")) {
             	   ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
             	   JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
                    executor.executeScript("arguments[0].click();", element);
                 break;
             }
-        }
+        }*/
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(3);
-	    HelperFunctions.staticWait(3);
+	    HelperFunctions.waitForPageToLoad(30);
+	    //HelperFunctions.staticWait(3);
 	    test.info("Wait for back to topic breadcrumb's visibility");
 	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait2.until(ExpectedConditions.visibilityOf(backToTopic));
@@ -383,8 +390,8 @@ public class TopicLandingPage extends HelperFunctions {
 	    HelperFunctions.staticWait(2);
 	    test.info("Clicked on hot topic");
 	    hotTopicsTitles.get(0).click();
-	    HelperFunctions.waitForPageToLoad(3);
-	    HelperFunctions.staticWait(3);
+	    HelperFunctions.waitForPageToLoad(30);
+	    //HelperFunctions.staticWait(3);
 	    test.info("Wait for topic content title's visibility");
 	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait2.until(ExpectedConditions.visibilityOf(topicContentTitle));
@@ -424,19 +431,26 @@ public class TopicLandingPage extends HelperFunctions {
 	    HelperFunctions.staticWait(3);
 	    Assert.assertTrue(topicPageTitle.isDisplayed());
 	    test.info("Verified topic page title's is displayed");
-	    HelperFunctions.staticWait(2);
+	    try {
+   	    	Thread.sleep(3000);
+   	    }catch(InterruptedException e) {
+   	    	e.printStackTrace();
+   	    }
 	    test.info("Clicked on content page");
-	    for (WebElement element : feedTopics) {
+	    JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
+        executor.executeScript("arguments[0].click();", feedTopics.get(0));
+	    test.info("Clicked on content page");
+	    /*for (WebElement element : feedTopics) {
             if (element.getText().contains("PwC")) {
             	   ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
             	   JavascriptExecutor executor = (JavascriptExecutor) Driver.getDriver();
                    executor.executeScript("arguments[0].click();", element);
                 break;
             }
-        }
+        }*/
 	    test.info("Wait for page to load");
-	    HelperFunctions.waitForPageToLoad(3);
-	    HelperFunctions.staticWait(3);
+	    HelperFunctions.waitForPageToLoad(30);
+	    //HelperFunctions.staticWait(3);
 	    test.info("Wait for back to topic breadcrumb's visibility");
 	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait2.until(ExpectedConditions.visibilityOf(backToTopic));

@@ -127,6 +127,9 @@ public class HomePage extends HelperFunctions {
 	@FindBy(xpath="//input[contains(@placeholder,'Search')]")
 	private WebElement searchField;
 	
+	@FindBy(xpath="//input[contains(@placeholder,'Buscar')]")
+	private WebElement searchField2;
+	
 	@FindBy(xpath="//span[@class='vs-search__result-not-found-heading']")
 	private WebElement noSearchResult;
 	
@@ -270,6 +273,27 @@ public class HomePage extends HelperFunctions {
 	
 	@FindBy(xpath="//span[@class='vs-search__showing-result-topic']")
 	private WebElement suggestedText;
+	
+	@FindBy(xpath="(//span[contains(@class, 'external-icon')])[1]")
+	private WebElement externalIcon;
+	
+	@FindBy(xpath="//input[@id='t_Mexico']")
+	private WebElement mexicoCheckbox2;
+	
+	@FindBy(xpath="//input[@id='t_Global']")
+	private WebElement globalCheckbox;
+	
+	@FindBy(xpath="//input[@id='t_Estados Unidos']")
+	private WebElement usCheckbox;
+	
+	@FindBy(xpath="//input[@id='t_US']")
+	private WebElement usGlobalCheckbox;
+	
+	@FindBy(xpath="//span[@class='vs-search__applied-territory']")
+	private static List<WebElement> terriLabels;
+	
+	@FindBy(xpath="//span[@class='vs-search__selected-territory-count']")
+	private WebElement countryCount;
 	
 	ReadXLSdata read1=new ReadXLSdata();
 	
@@ -2579,6 +2603,289 @@ public class HomePage extends HelperFunctions {
 	    test.info("Verified suggestedText contains required keyword");
 	    HelperFunctions.staticWait(3);
 	    
+	}
+	public void setExternalPageNewTab(ExtentTest test) throws Exception {
+		read1.setExcelFile("./testdata.xlsx", "QA");
+	    test.info("Wait for page to load");
+	   
+	    test.info("Wait search button's visibility");
+	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 30);
+	    wait2.until(ExpectedConditions.visibilityOf(searchButton));
+	    test.info("Clicked on search button");
+	    searchButton.click();
+	    wait2.until(ExpectedConditions.visibilityOf(searchField));
+	    test.info("Clicked on search field and send text");
+	    searchField.click();
+	    HelperFunctions.staticWait(2);
+	    String mockContent="external";
+	    searchField.sendKeys(mockContent);
+	    HelperFunctions.staticWait(3);
+	    test.info("Clicking on Enter");
+	    Actions actions = new Actions(Driver.getDriver());
+	    actions.sendKeys(Keys.ENTER).build().perform();
+	    test.info("Wait for page to load");
+	    HelperFunctions.waitForPageToLoad(60);
+	    HelperFunctions.staticWait(2);
+	    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+	    js.executeScript("arguments[0].click();", externalIcon);
+	    test.info("Clicked on first external icon");
+	    WebDriverWait wait4 = new WebDriverWait(Driver.getDriver(), 30);
+	    wait4.until(ExpectedConditions.numberOfWindowsToBe(2));
+	    Set<String> windowHandles3 = Driver.getDriver().getWindowHandles();
+	    Assert.assertEquals(windowHandles3.size(), 2, "Expected two windows to be open, but found " + windowHandles3.size());
+	    test.info("Verified external icon opened in a new tab");
+	    HelperFunctions.staticWait(3);
+	    
+	    
+	}
+	public void setSelectingTerritoriesSearchResult(ExtentTest test) throws Exception {
+		read1.setExcelFile("./testdata.xlsx", "QA");
+		 test.info("Wait for page to load");
+		   
+		    test.info("Wait search button's visibility");
+		    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 30);
+		    wait2.until(ExpectedConditions.visibilityOf(searchButton));
+		    test.info("Clicked on search button");
+		    searchButton.click();
+		    wait2.until(ExpectedConditions.visibilityOf(searchField));
+		    test.info("Clicked on search field and send text");
+		    searchField.click();
+		    HelperFunctions.staticWait(2);
+		    String mockContent="esg";
+		    searchField.sendKeys(mockContent);
+		    HelperFunctions.staticWait(3);
+		    test.info("Clicking on Enter");
+		    Actions actions = new Actions(Driver.getDriver());
+		    actions.sendKeys(Keys.ENTER).build().perform();
+		    test.info("Wait for page to load");
+		    HelperFunctions.waitForPageToLoad(60);
+		    try {
+		    	Thread.sleep(3000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+		    js.executeScript("arguments[0].click();", mexicoCheckbox);
+		    test.info("Clicked on mexico checkbox");
+		    try {
+		    	Thread.sleep(5000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    Assert.assertTrue(countryCount.getText().contains("Mexico"));
+		    /*HelperFunctions.staticWait(5);
+		    boolean foundMexico=false;
+		    for(WebElement label:terriLabels) {
+		    	System.out.println(label.getText());
+		    	String text=label.getText();
+		    	if(text.contains("Mexico")) {
+		    		foundMexico=true;
+		    		break;
+		    	}
+		    }
+		    if(foundMexico) {
+		    	Assert.assertTrue(true);
+		    }else {
+		    	Assert.assertTrue(false);
+		    }*/
+		    try {
+		    	Thread.sleep(5000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    js.executeScript("arguments[0].click();", mexicoCheckbox);
+		    try {
+		    	Thread.sleep(4000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    js.executeScript("arguments[0].click();", globalCheckbox);
+		    try {
+		    	Thread.sleep(5000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    Assert.assertTrue(countryCount.getText().contains("Global"));
+		    /*HelperFunctions.staticWait(5);
+		    boolean foundGlobal=false;
+		    for(WebElement label2:terriLabels) {
+		    	String text2=label2.getText();
+		    	if(text2.contains("Global")) {
+		    		foundGlobal=true;
+		    		break;
+		    	}
+		    }
+		    if(foundGlobal) {
+		    	Assert.assertTrue(true);
+		    }else {
+		    	Assert.assertTrue(false);
+		    }*/
+		    HelperFunctions.staticWait(3);
+		    test.info("Clicked on territory menu");
+		    terriMenu.click();
+		    wait2.until(ExpectedConditions.visibilityOf(mexico));
+		    test.info("Clicked on mexico");
+		    mexico.click();
+		    HelperFunctions.waitForPageToLoad(60);
+		    wait2.until(ExpectedConditions.visibilityOf(searchButton));
+		    test.info("Clicked on search button");
+		    searchButton.click();
+		    wait2.until(ExpectedConditions.visibilityOf(searchField2));
+		    test.info("Clicked on search field and send text");
+		    searchField2.click();
+		    HelperFunctions.staticWait(2);
+		    searchField2.sendKeys(mockContent);
+		    HelperFunctions.staticWait(3);
+		    test.info("Clicking on Enter");
+		    actions.sendKeys(Keys.ENTER).build().perform();
+		    test.info("Wait for page to load");
+		    HelperFunctions.waitForPageToLoad(60);
+		    try {
+		    	Thread.sleep(4000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    JavascriptExecutor js2 = (JavascriptExecutor) Driver.getDriver();
+		    js2.executeScript("arguments[0].click();", usCheckbox);
+		    test.info("Clicked on us checkbox");
+		   /* HelperFunctions.staticWait(5);
+		    boolean foundus=false;
+		    for(WebElement label3:terriLabels) {
+		    	System.out.println(label3.getText());
+		    	String text3=label3.getText();
+		    	if(text3.contains("US")) {
+		    		foundus=true;
+		    		break;
+		    	}
+		    }
+		    if(foundus) {
+		    	Assert.assertTrue(true);
+		    }else {
+		    	Assert.assertTrue(false);
+		    }*/
+		    try {
+		    	Thread.sleep(5000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    Assert.assertTrue(countryCount.getText().contains("Estados"));
+		    try {
+		    	Thread.sleep(4000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    js2.executeScript("arguments[0].click();", usCheckbox);
+		    try {
+		    	Thread.sleep(4000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    js2.executeScript("arguments[0].click();", globalCheckbox);
+		    /*HelperFunctions.staticWait(5);
+		    boolean foundGlobal3=false;
+		    for(WebElement label4:terriLabels) {
+		    	String text4=label4.getText();
+		    	if(text4.contains("Global")) {
+		    		foundGlobal3=true;
+		    		break;
+		    	}
+		    }
+		    if(foundGlobal3) {
+		    	Assert.assertTrue(true);
+		    }else {
+		    	Assert.assertTrue(false);
+		    }*/
+		    try {
+		    	Thread.sleep(5000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    Assert.assertTrue(countryCount.getText().contains("Global"));
+		    HelperFunctions.staticWait(3);
+		    terriMenu.click();
+		    test.info("Clicked on territory menu");
+		    //HelperFunctions.staticWait(3);
+		    WebElement globalLink = Driver.getDriver().findElement(By.linkText("Global"));
+		    WebDriverWait wait5 = new WebDriverWait(Driver.getDriver(), 30);
+		    wait5.until(ExpectedConditions.visibilityOf(globalLink));
+		    globalLink.click();
+		    test.info("Clicked on Global");
+		    HelperFunctions.waitForPageToLoad(60);
+		    wait2.until(ExpectedConditions.visibilityOf(searchButton));
+		    test.info("Clicked on search button");
+		    searchButton.click();
+		    wait2.until(ExpectedConditions.visibilityOf(searchField));
+		    test.info("Clicked on search field and send text");
+		    searchField.click();
+		    HelperFunctions.staticWait(2);
+		    searchField.sendKeys(mockContent);
+		    HelperFunctions.staticWait(3);
+		    test.info("Clicking on Enter");
+		    actions.sendKeys(Keys.ENTER).build().perform();
+		    test.info("Wait for page to load");
+		    HelperFunctions.waitForPageToLoad(60);
+		    try {
+		    	Thread.sleep(4000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    JavascriptExecutor js3 = (JavascriptExecutor) Driver.getDriver();
+		    js3.executeScript("arguments[0].click();", mexicoCheckbox2);
+		    test.info("Clicked on mexico checkbox");
+		    /*HelperFunctions.staticWait(5);
+		    boolean foundMexico2=false;
+		    for(WebElement label5:terriLabels) {
+		    	System.out.println(label5.getText());
+		    	String text5=label5.getText();
+		    	if(text5.contains("Mexico")) {
+		    		foundMexico2=true;
+		    		break;
+		    	}
+		    }
+		    if(foundMexico2) {
+		    	Assert.assertTrue(true);
+		    }else {
+		    	Assert.assertTrue(false);
+		    }*/
+		    try {
+		    	Thread.sleep(5000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    Assert.assertTrue(countryCount.getText().contains("Mexico"));
+		    try {
+		    	Thread.sleep(4000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    js2.executeScript("arguments[0].click();", mexicoCheckbox2);
+		    try {
+		    	Thread.sleep(4000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    js2.executeScript("arguments[0].click();", usGlobalCheckbox);
+		    /*HelperFunctions.staticWait(5);
+		    boolean foundus2=false;
+		    for(WebElement label6:terriLabels) {
+		    	String text6=label6.getText();
+		    	if(text6.contains("US")) {
+		    		foundus2=true;
+		    		break;
+		    	}
+		    }
+		    if(foundus2) {
+		    	Assert.assertTrue(true);
+		    }else {
+		    	Assert.assertTrue(false);
+		    }*/
+		    try {
+		    	Thread.sleep(5000);
+		    }catch(InterruptedException e) {
+		    	e.printStackTrace();
+		    }
+		    Assert.assertTrue(countryCount.getText().contains("US"));
+		    HelperFunctions.staticWait(3);
 	}
 }
 

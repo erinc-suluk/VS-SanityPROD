@@ -2665,7 +2665,7 @@ public class HomePage extends HelperFunctions {
 		    	e.printStackTrace();
 		    }
 		    JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
-		    js.executeScript("arguments[0].click();", mexicoCheckbox);
+		    js.executeScript("arguments[0].click();", mexicoCheckbox2);
 		    test.info("Clicked on mexico checkbox");
 		    try {
 		    	Thread.sleep(5000);
@@ -2693,7 +2693,7 @@ public class HomePage extends HelperFunctions {
 		    }catch(InterruptedException e) {
 		    	e.printStackTrace();
 		    }
-		    js.executeScript("arguments[0].click();", mexicoCheckbox);
+		    js.executeScript("arguments[0].click();", mexicoCheckbox2);
 		    try {
 		    	Thread.sleep(4000);
 		    }catch(InterruptedException e) {

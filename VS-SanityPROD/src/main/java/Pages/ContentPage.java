@@ -364,10 +364,10 @@ public class ContentPage extends HelperFunctions{
 	@FindBy(xpath="//button[@class='cmp-accordion__button']")
 	private WebElement accordion2button;
 	
-	@FindBy(xpath="//div[@id='accordion-ea48cb1a6c-item-4e7c13c116-panel']")
+	@FindBy(xpath="//div[@id='accordion-fe900ae1bc-item-8d7dea13c8-panel']")
 	private WebElement accordion1;
 	
-	@FindBy(xpath="//div[@id='accordion-ea48cb1a6c-item-f06bdc25eb-panel']")
+	@FindBy(xpath="//div[@id='accordion-fe900ae1bc-item-4350012633-panel']")
 	private WebElement accordion2;
 	
 	@FindBy(xpath="//a[@class='vs-content-details__links']")

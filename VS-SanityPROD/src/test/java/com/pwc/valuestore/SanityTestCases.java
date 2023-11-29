@@ -1138,6 +1138,44 @@ public class SanityTestCases extends HelperFunctions {
 		    }
 	}
 	
+	@Test
+	public void WEB_56() throws Exception{
+		  String testName = "To verify that if cross territories are selected, the system will display country tags for ALL the territories including the viewing territory";
+		    ExtentTest test = extent.createTest(testName);
+
+		    try {
+		        Driver.getDriver().get(read1.getCellData("VALUE", 11));
+		        lpo.setLogin4();
+		        hp.setSelectingTerritoriesSearchResult(test);
+		        test.pass("WEB_69 passed");  
+		    } catch (Exception e) {
+		        String screenshotPath = takeScreenshot(testName);
+		        test.fail("Test failed: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		    }
+		    if (test.getModel().getStatus().toString().equalsIgnoreCase("fail")) {
+		        Assert.fail("Test case failed: " + testName);
+		    }
+	}
+	
+	@Test
+	public void WEB_57() throws Exception{
+		  String testName = "To verify that clicking the external page title and the icon will open the link in a new tab on the search result page";
+		    ExtentTest test = extent.createTest(testName);
+
+		    try {
+		        Driver.getDriver().get(read1.getCellData("VALUE", 11));
+		        lpo.setLogin4();
+		        hp.setExternalPageNewTab(test);
+		        test.pass("WEB_69 passed");  
+		    } catch (Exception e) {
+		        String screenshotPath = takeScreenshot(testName);
+		        test.fail("Test failed: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		    }
+		    if (test.getModel().getStatus().toString().equalsIgnoreCase("fail")) {
+		        Assert.fail("Test case failed: " + testName);
+		    }
+	}
+	
 	
 	
 	

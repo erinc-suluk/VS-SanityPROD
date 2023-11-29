@@ -12,7 +12,7 @@
       <include name="WEB_1"/>
        <include name="WEB_2"/>
        <include name="WEB_3"/>
-       <include name="WEB_4"/>
+       <exclude name="WEB_4"/>
        <include name="WEB_5"/>
        <include name="WEB_6"/>
        <include name="WEB_7"/>
@@ -64,7 +64,7 @@
        <include name="WEB_53"/>
        <include name="WEB_54"/>
        <exclude name="WEB_55"/>
-       <exclude name="WEB_56"/>
+       <include name="WEB_56"/>
        <include name="WEB_57"/>
        <include name="WEB_58"/>
        <include name="WEB_59"/>

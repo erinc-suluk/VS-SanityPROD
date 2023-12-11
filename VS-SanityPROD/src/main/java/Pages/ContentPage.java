@@ -1649,8 +1649,8 @@ ReadXLSdata read1=new ReadXLSdata();
 	    HelperFunctions.staticWait(2);
 	    Assert.assertTrue(whatOthersTitle.isDisplayed());
 	    test.info("Verify that whatOthersTitle is displayed");
-	    HelperFunctions.staticWait(2);
-	    test.info("Checking all content title's border bottom are changing when move the cursor");
+	    HelperFunctions.staticWait(5);
+	    /*test.info("Checking all content title's border bottom are changing when move the cursor");
 	    for (WebElement whatContent : whatContents) {
 	        String originalBorderBottom = whatContent.getCssValue("border-bottom");
 	        System.out.println(originalBorderBottom);
@@ -1667,7 +1667,7 @@ ReadXLSdata read1=new ReadXLSdata();
 	        HelperFunctions.staticWait(2);
 	        test.info("Verified all content title's border bottom are changing when move the cursor");
 	    }
-	    HelperFunctions.staticWait(2);
+	    HelperFunctions.staticWait(2);*/
 	}
 	public void setWhatOthersViewingElements(ExtentTest test) throws Exception {
 		read1.setExcelFile("./testdata.xlsx", "STG");

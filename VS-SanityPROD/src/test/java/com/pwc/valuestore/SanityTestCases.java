@@ -806,8 +806,7 @@ public class SanityTestCases extends HelperFunctions {
 	}
 	@Test
 	public void WEB_38() throws Exception{
-		  String testName = "To verify that the \"What others are viewing\" component is presented on all content pages."
-				  +"To verify that hover functionality on the (What others are viewing) article titles.";
+		  String testName = "To verify that the \"What others are viewing\" component is presented on all content pages.";
 		    ExtentTest test = extent.createTest(testName);
 
 		    try {

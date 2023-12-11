@@ -1919,7 +1919,7 @@ public class HomePage extends HelperFunctions {
 	    test.info("Clicked on search field and send text");
 	    searchField.click();
 	    HelperFunctions.staticWait(2);
-	    String mockContent="audit";
+	    String mockContent="esg";
 	    searchField.sendKeys(mockContent);
 	    //HelperFunctions.staticWait(5);
 	    test.info("Wait for suggested keyword's visibility");
@@ -2158,7 +2158,12 @@ public class HomePage extends HelperFunctions {
 	    HelperFunctions.staticWait(5);
 	    JavascriptExecutor js2 = (JavascriptExecutor) Driver.getDriver();
 	    js2.executeScript("arguments[0].click();", articleFavIcons2.get(0));
-	    //articleFavIcons.get(0).click();
+	    HelperFunctions.staticWait(3);
+	    JavascriptExecutor js3 = (JavascriptExecutor) Driver.getDriver();
+	    js3.executeScript("arguments[0].click();", articleFavIcons.get(0));
+	    HelperFunctions.staticWait(3);
+	    JavascriptExecutor js4 = (JavascriptExecutor) Driver.getDriver();
+	    js4.executeScript("arguments[0].click();", articleFavIcons.get(0));
 	    test.info("Added 2 elements to the favorites");
 	    HelperFunctions.staticWait(5);
 	    test.info("Clicked on fav icon link");

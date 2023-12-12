@@ -295,6 +295,15 @@ public class HomePage extends HelperFunctions {
 	@FindBy(xpath="//span[@class='vs-search__selected-territory-count']")
 	private WebElement countryCount;
 	
+	@FindBy(xpath="//a[contains(text(),'VA')]")
+	private WebElement userProfile;
+	
+	@FindBy(xpath="//li[@class='userprofile']//a[contains(text(),'Logout')]")
+	private WebElement logout;
+	
+	@FindBy(xpath="//input[@id='initEmail']")
+	private WebElement email;
+	
 	ReadXLSdata read1=new ReadXLSdata();
 	
 	public void setAccesingHomepage(ExtentTest test) throws Exception {
@@ -2891,6 +2900,38 @@ public class HomePage extends HelperFunctions {
 		    }
 		    Assert.assertTrue(countryCount.getText().contains("US"));
 		    HelperFunctions.staticWait(3);
+	}
+	public void setLogoutOption(ExtentTest test) throws Exception {
+		read1.setExcelFile("./testdata.xlsx", "QA");
+	    test.info("Wait for page to load");
+	   // HelperFunctions.staticWait(7);
+	    test.info("Wait for user profile's visibility");
+	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 90);
+	    wait2.until(ExpectedConditions.visibilityOf(userProfile));
+	    try {
+	    	Thread.sleep(5000);
+	    }catch(InterruptedException e) {
+	    	e.printStackTrace();
+	    }
+	    test.info("Click on user profile");
+	    JavascriptExecutor js3 = (JavascriptExecutor) Driver.getDriver();
+	    js3.executeScript("arguments[0].click();", userProfile);
+	    userProfile.click();
+	    try {
+	    	Thread.sleep(5000);
+	    }catch(InterruptedException e) {
+	    	e.printStackTrace();
+	    }
+	    Assert.assertTrue(logout.isDisplayed());
+	    test.info("Verified the logout option is displayed");
+	    test.info("Click on logout");
+	    logout.click();
+	    test.info("Wait for email's visibility");
+	    wait2.until(ExpectedConditions.visibilityOf(email));
+	    Assert.assertTrue(email.isDisplayed());
+	    test.info("Verified the email is displayed and user is on the login page again");
+	    HelperFunctions.staticWait(3);
+	    
 	}
 }
 

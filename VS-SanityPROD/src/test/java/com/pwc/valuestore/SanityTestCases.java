@@ -1174,6 +1174,24 @@ public class SanityTestCases extends HelperFunctions {
 		        Assert.fail("Test case failed: " + testName);
 		    }
 	}
+	@Test
+	public void WEB_58() throws Exception{
+		  String testName = "To verify that User is able to sign out from the Value Store by using the 'Logout' option.";
+		    ExtentTest test = extent.createTest(testName);
+
+		    try {
+		        Driver.getDriver().get(read1.getCellData("VALUE", 11));
+		        lpo.setLogin4();
+		        hp.setLogoutOption(test);
+		        test.pass("WEB_69 passed");  
+		    } catch (Exception e) {
+		        String screenshotPath = takeScreenshot(testName);
+		        test.fail("Test failed: " + e.getMessage(), MediaEntityBuilder.createScreenCaptureFromPath(screenshotPath).build());
+		    }
+		    if (test.getModel().getStatus().toString().equalsIgnoreCase("fail")) {
+		        Assert.fail("Test case failed: " + testName);
+		    }
+	}
 	
 	
 	

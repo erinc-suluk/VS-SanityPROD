@@ -1763,10 +1763,10 @@ ReadXLSdata read1=new ReadXLSdata();
 	    }*/
 	    test.info("Wait for page to load");
 	    HelperFunctions.waitForPageToLoad(15);
-	  
+	    HelperFunctions.staticWait(10);
 	    test.info("Wait for visibility of header");
-	    WebDriverWait wait4 = new WebDriverWait(Driver.getDriver(), 10);
-	    wait4.until(ExpectedConditions.visibilityOf(header));
+	    //WebDriverWait wait4 = new WebDriverWait(Driver.getDriver(), 10);
+	    //wait4.until(ExpectedConditions.visibilityOf(header));
 	    HelperFunctions.staticWait(3);
 	    Assert.assertTrue(header.isDisplayed());
 	    test.info("Verified the header is displayed");

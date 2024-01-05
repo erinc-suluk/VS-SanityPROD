@@ -611,18 +611,23 @@ public class HomePage extends HelperFunctions {
 	    logo.click();*/
 	    test.info("Wait for page to load");
 	    HelperFunctions.waitForPageToLoad(15);
-	    
+	    JavascriptExecutor js2 = (JavascriptExecutor) Driver.getDriver();
 	    test.info("Wait for logo visibility");
-	    WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
-	    wait2.until(ExpectedConditions.visibilityOf(logo));
-	    HelperFunctions.staticWait(3);
+	    //WebDriverWait wait2 = new WebDriverWait(Driver.getDriver(), 10);
+	    //wait2.until(ExpectedConditions.visibilityOf(logo));
+	    try {
+	    	Thread.sleep(5000);
+	    }catch(InterruptedException e) {
+	    	e.printStackTrace();
+	    }
 	    test.info("Clicked on select topic");
-        selectTopic.click();
+	    js2.executeScript("arguments[0].click();", selectTopic);
+        //selectTopic.click();
         HelperFunctions.staticWait(2);
         test.info("Wait for deals checkbox visibility and clicked on it");
         WebDriverWait wait3 = new WebDriverWait(Driver.getDriver(), 10);
 	    wait3.until(ExpectedConditions.visibilityOf(dealsCheckbox));
-	    JavascriptExecutor js2 = (JavascriptExecutor) Driver.getDriver();
+	  
 	    js2.executeScript("arguments[0].click();", dealsCheckbox);
 	    HelperFunctions.staticWait(2);
 	    test.info("Clicked on select topic");
